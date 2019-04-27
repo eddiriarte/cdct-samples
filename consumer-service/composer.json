@@ -1,0 +1,25 @@
+{
+    "name": "eddiriarte/consumer-service",
+    "version": "0.1.0",
+    "description": "Sample consumer service for meetup demo.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eduardo Iriarte",
+            "email": "eddiriarte@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EddIriarte\\Consumer\\": "src/"
+        }
+    },
+    "require": {
+        "slim/slim": "^3.12"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.1",
+        "pact-foundation/pact-php": "^5.0"
+    }
+}
