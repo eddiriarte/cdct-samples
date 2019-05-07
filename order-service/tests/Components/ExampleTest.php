@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Order\Components;
+
 use Laravel\Lumen\Testing\DatabaseMigrations;
 use Laravel\Lumen\Testing\DatabaseTransactions;
 
@@ -15,7 +17,8 @@ class ExampleTest extends TestCase
         $this->get('/');
 
         $this->assertEquals(
-            $this->app->version(), $this->response->getContent()
+            '"Order Service v1.0.0, powered by Lumen"',
+            $this->response->getContent()
         );
     }
 }

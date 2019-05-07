@@ -8,19 +8,53 @@
          convertWarningsToExceptions="true"
          processIsolation="false"
          stopOnFailure="false">
+
     <testsuites>
-        <testsuite name="Application Test Suite">
-            <directory suffix="Test.php">./tests</directory>
+        <testsuite name="unit-tests">
+            <directory suffix="Test.php">./tests/Units</directory>
+        </testsuite>
+        <testsuite name="component-tests">
+            <directory suffix="Test.php">./tests/Components</directory>
+        </testsuite>
+        <testsuite name="consumer-contract-tests">
+            <directory suffix="Contract.php">./tests/Contracts/Consumer</directory>
+        </testsuite>
+        <testsuite name="payment-contract-tests">
+            <directory suffix="Contract.php">./tests/Contracts/Payment</directory>
+        </testsuite>
+        <testsuite name="webportal-contract-tests">
+            <directory suffix="Contract.php">./tests/Contracts/Web</directory>
         </testsuite>
     </testsuites>
+
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./app</directory>
         </whitelist>
     </filter>
+
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
+
+        <env name="PACT_BROKER_URI" value="http://pact-broker.local"/>
+        <env name="PACT_CONSUMER_VERSION" value="1.0.0"/>
+        <env name="PACT_CONSUMER_TAG" value="demo"/>
     </php>
+
+    <listeners>
+        <listener class="Tests\Order\Support\CustomContractTestListener">
+            <arguments>
+                <array>
+                    <element key="consumer-service">
+                        <string>consumer-contract-tests</string>
+                    </element>
+                    <element key="payment-service">
+                        <string>payment-contract-tests</string>
+                    </element>
+                </array>
+            </arguments>
+        </listener>
+    </listeners>
 </phpunit>
