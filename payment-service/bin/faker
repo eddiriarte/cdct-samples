@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+use Symfony\Component\Console\Input\ArgvInput;
+use Faker\Factory;
+
+require dirname(__DIR__).'/vendor/autoload.php';
+
+$input = new ArgvInput();
+$faker = Factory::create();
+
+$count = $input->getParameterOption(['--count', '-c'], 500);
+$output = $input->getParameterOption(['--output', '-o'], dirname(__DIR__) . '/payment-dump.sql');
+
+$template = "INSERT INTO payments (`id`, `order_id`, `amount`, `date`, `descriptions`, `iban`, `bank_name`) VALUES ('%s', '%s', %d, '%s', '%s', '%s', '%s');" . PHP_EOL;
+
+for ($i=0; $i < $count; $i++) { 
+    $insertStatement = sprintf(
+        $template,
+        $faker->uuid,
+        $faker->uuid,
+        (float)$faker->numerify("###.##"),
+        ($faker->dateTimeThisDecade)->format('Y-m-d h:m:i'),
+        '',
+        $faker->iban,
+        $faker->company
+    );
+
+    file_put_contents($output, $insertStatement, FILE_APPEND);
+}

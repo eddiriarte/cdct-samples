@@ -1,0 +1,3 @@
+index:
+    path: /
+    controller: EddIriarte\Payment\Controller\GetApplicationVersion
