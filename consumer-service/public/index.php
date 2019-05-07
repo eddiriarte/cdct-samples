@@ -11,24 +11,24 @@ call_user_func(function () {
         }
     }
 
-    require __DIR__ . '/../vendor/autoload.php';
+    require dirname(__DIR__) . '/vendor/autoload.php';
 
     session_start();
     
     // Instantiate the app
-    $config = require __DIR__ . '/../config.php';
+    $config = require dirname(__DIR__) . '/config/settings.php';
     $app = new \Slim\App($config);
     
     // Set up container
-    $container = require __DIR__ . '/../container.php';
+    $container = require dirname(__DIR__) . '/config/container.php';
     $container($app);
 
     // Register middleware
-    $middleware = require __DIR__ . '/../middleware.php';
+    $middleware = require dirname(__DIR__) . '/config/middleware.php';
     $middleware($app);
     
     // Register routes
-    $routes = require __DIR__ . '/../routes.php';
+    $routes = require dirname(__DIR__) . '/config/routes.php';
     $routes($app);
     
     // Run app

@@ -13,7 +13,8 @@ class GetApplicationVersion
      */
     private $version;
 
-    public function __construct(ContainerInterface $container) {
+    public function __construct(ContainerInterface $container)
+    {
         $this->version = $container->get('version');
     }
 
@@ -27,6 +28,8 @@ class GetApplicationVersion
      */
     public function __invoke($request, $response, $args)
     {
-        return $response->withJson($this->version);
+        return $response->withJson(
+            "Order Service ({$this->version}) powered by Slim"
+        );
     }
 }
