@@ -1,3 +1,3 @@
-Consumer-Driven Contract Testing
-================================
+Consumer-Driven Contract Testing - Demo
+=======================================
 

@@ -1,0 +1,56 @@
+version: "3.5"
+
+networks:
+  proxy:
+    external:
+      name: proxy_network
+
+services:
+
+  order:
+    image: eddiriarte/php7.2
+    networks:
+      - proxy
+    volumes:
+      - ./order-service:/var/www/html
+    ports:
+      - 80
+    working_dir: /var/www/html
+    environment:
+      - VIRTUAL_HOST=order-service.local
+
+  consumer:
+    image: eddiriarte/php7.2
+    networks:
+      - proxy
+    volumes:
+      - ./consumer-service:/var/www/html
+    ports:
+      - 80
+    working_dir: /var/www/html
+    environment:
+      - VIRTUAL_HOST=consumer-service.local
+  
+  payment:
+    image: eddiriarte/php7.2
+    networks:
+      - proxy
+    volumes:
+      - ./payment-service:/var/www/html
+    ports:
+      - 80
+    working_dir: /var/www/html
+    environment:
+      - VIRTUAL_HOST=payment-service.local
+
+  portal:
+    image: eddiriarte/php7.2
+    networks:
+      - proxy
+    volumes:
+      - ./web-portal:/var/www/html
+    ports:
+      - 80
+    working_dir: /var/www/html
+    environment:
+      - VIRTUAL_HOST=web-portal.local
