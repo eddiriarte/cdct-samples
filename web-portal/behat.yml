@@ -1,0 +1,10 @@
+default:
+  autoload:
+    - "%paths.base%/tests"
+  suites:
+    default:
+      paths: [ "%paths.base%/tests" ]
+      contexts:
+        - Tests\WebPortal\Features\WebPortalContext
+        - Tests\WebPortal\Features\ConsumerContractContext
+        - Tests\WebPortal\Features\OrderContractContext

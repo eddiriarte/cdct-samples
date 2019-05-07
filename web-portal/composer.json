@@ -1,0 +1,32 @@
+{
+    "name": "eddiriarte/web-portal",
+    "description": "Sample consumer service for meetup demo.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eduardo Iriarte",
+            "email": "eddiriarte@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "EddIriarte\\WebPortal\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\WebPortal\\": "tests/"
+        }
+    },
+    "require": {
+        "slim/slim": "^3.12",
+        "slim/twig-view": "^2.5"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "^1.8",
+        "symfony/console": "^4.2",
+        "behat/behat": "^3.5",
+        "pact-foundation/pact-php": "^5.0"
+    }
+}
