@@ -13,7 +13,7 @@
 ### Split the big name into terms...
 
 
-<img class="plain" src="/media/consumer.svg">
+<img class="plain" src="./media/consumer.svg">
 
 Application consuming an API/Service
 
@@ -22,7 +22,7 @@ Application consuming an API/Service
 </footer>
 
 
-<img class="plain" src="/media/consumer-driven.svg">
+<img class="plain" src="./media/consumer-driven.svg">
 
 Service/API development gets driven by consumer, who defines expectation constraints for requests
 
@@ -31,7 +31,7 @@ Service/API development gets driven by consumer, who defines expectation constra
 </footer>
 
 
-<img class="plain" src="/media/contract.svg">
+<img class="plain" src="./media/contract.svg">
 
 Agreed definition of constraints for the Service/API
 
@@ -40,7 +40,7 @@ Agreed definition of constraints for the Service/API
 </footer>
 
 
-<img class="plain" src="/media/contract-testing.svg">
+<img class="plain" src="./media/contract-testing.svg">
 
 Verified communication by given contract
 
@@ -61,16 +61,16 @@ A strategy  to test communication between services, constrained to a given cont
 ## What is it good for?
 
 
-<img class="plain" src="/media/api-development-start.svg" width="85%" alt="API Development - Start">
+<img class="plain" src="./media/api-development-start.svg" width="85%" alt="API Development - Start">
 
 
-<img class="plain" src="/media/api-development-provider-update.svg" width="85%" alt="API Development - Provider update">
+<img class="plain" src="./media/api-development-provider-update.svg" width="85%" alt="API Development - Provider update">
 
 
-<img class="plain" src="/media/api-development-postels-law.svg" width="85%" alt="API Development - Postel's Law">
+<img class="plain" src="./media/api-development-postels-law.svg" width="85%" alt="API Development - Postel's Law">
 
 
-<img class="plain" src="/media/api-development-versionized.svg" width="85%" alt="API Development - Versionized API">
+<img class="plain" src="./media/api-development-versionized.svg" width="85%" alt="API Development - Versionized API">
 
 Note:
 - Lack of knowledge about consumer requirements
@@ -79,11 +79,11 @@ Note:
 - Documentation of historical changes
 
 
-<!-- .slide: data-background-image="https://media.giphy.com/media/3oFzmhSdxPiyRyR5vi/giphy-downsized.gif" data-background-size="cover" -->
+<!-- .slide: data-background-image="https://media.giphy.com./media/3oFzmhSdxPiyRyR5vi/giphy-downsized.gif" data-background-size="cover" -->
 ## Can I Use?
 
 
-<img class="plain" src="/media/can-i-use.png" width="80%" alt="Can I User - Tools">
+<img class="plain" src="./media/can-i-use.png" width="80%" alt="Can I User - Tools">
 
 
 ## What is <span class="handy">PACT</span>?
@@ -96,7 +96,7 @@ Note:
 </footer>
 
 
-<!-- .slide: data-background-image="/media/demo-architecture.png" data-background-size="cover" -->
+<!-- .slide: data-background-image="./media/demo-architecture.png" data-background-size="cover" -->
 ## DEMO
 
 `git clone https://github.com/eddiriarte/cdct-samples.git` <small>* still working on it</small>
