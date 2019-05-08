@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-469 470.2 85 85"
+	 style="enable-background:new -469 470.2 85 85;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#ff6c37;}
+	.st1{fill:#FF921E;}
+	.st2{fill:none;stroke:#FFFFFF;stroke-width:2;}
+	.st3{fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;}
+</style>
+<title>ic-newman</title>
+<desc>Created with sketchtool.</desc>
+<g id="Pre-Login-Pgs" sketch:type="MSPage">
+	<g id="Integrations-v2" transform="translate(-82.000000, -602.000000)" sketch:type="MSArtboardGroup">
+		<g id="ic-newman" transform="translate(82.000000, 602.000000)" sketch:type="MSLayerGroup">
+			<path id="Fill-1" sketch:type="MSShapeGroup" class="st0" d="M-389.2,512.7c0,20.8-16.9,37.7-37.7,37.7
+				c-20.8,0-37.7-16.9-37.7-37.7c0-20.8,16.9-37.7,37.7-37.7C-406.1,475-389.2,491.9-389.2,512.7"/>
+			<path id="Fill-2" sketch:type="MSShapeGroup" class="st0" d="M-391.1,505.4h7v16.5h-7V505.4z"/>
+			<path id="Fill-3" sketch:type="MSShapeGroup" class="st1" d="M-425.3,542.7c-16.2-1.3-27.8-12-27.8-12v-28.9
+				c10.6-6,19.9-7.9,27.8-7.9h0.1c7.8,0,16,1.9,25.3,7.9v28.9C-400,530.8-409,541.4-425.3,542.7L-425.3,542.7L-425.3,542.7z"/>
+			<path id="Stroke-4" sketch:type="MSShapeGroup" class="st2" d="M-425.3,542.7c-16.2-1.3-27.8-12-27.8-12v-28.9
+				c10.6-6,19.9-7.9,27.8-7.9h0.1c7.8,0,16,1.9,25.3,7.9v28.9C-400,530.8-409,541.4-425.3,542.7L-425.3,542.7L-425.3,542.7z"/>
+			<path id="Fill-5" sketch:type="MSShapeGroup" class="st0" d="M-469,505.4h6.3v16.5h-6.3V505.4z"/>
+			<path id="Stroke-6" sketch:type="MSShapeGroup" class="st3" d="M-444.3,506.7l11.4,5.2l-11.4,5"/>
+			<path id="Stroke-7" sketch:type="MSShapeGroup" class="st2" d="M-432.9,528.8h14.5 M-413.1,482c0,0,5.9,2.1,9.3,6.4"/>
+		</g>
+	</g>
+</g>
+</svg>
