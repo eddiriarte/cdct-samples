@@ -17,13 +17,13 @@ class FindConsumerWithAddressContract extends TestCase
      * @test
      * @throws \Exception
      */
-    function it_should_valid_consumer_and_address_data()
+    public function it_should_valid_consumer_and_address_data()
     {
         // Create your expected request from the consumer.
         $request = (new ConsumerRequest())
             ->setMethod('GET')
             ->addHeader('Content-Type', 'application/json')
-            ->setPath('/consumers/0276313d-53f2-3831-91dd-b905400f6137/addresses/cbd44fc9-97a6-3e43-ba60-3e2a5c459367');
+            ->setPath('/consumers/0276313d-53f2-3831-91dd-b905400f137/addresses/cbd44fc9-97a6-3e43-ba60-3e2a5c459367');
 
         // Create your expected response from the provider.
         $response = (new ProviderResponse())
@@ -45,7 +45,7 @@ class FindConsumerWithAddressContract extends TestCase
 
         $result = (new ConsumerGateway(new Client(), (string)$config->getBaseUri()))
             ->findConsumerWithAddress(
-                '0276313d-53f2-3831-91dd-b905400f6137',
+                '0276313d-53f2-3831-91dd-b905400f137',
                 'cbd44fc9-97a6-3e43-ba60-3e2a5c459367'
             );
 
@@ -70,7 +70,7 @@ class FindConsumerWithAddressContract extends TestCase
                 'id' => $matcher->uuid(),
                 'street' => $matcher->like('Baker Str. 221'),
                 'city' => $matcher->like('London'),
-                'postal_code' => $matcher->like('12345'),
+                'postal_code' => $matcher->integer(12345),
                 'state' => $matcher->like('London'),
                 'country_code' => $matcher->like('GB'),
             ],

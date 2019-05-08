@@ -10,7 +10,7 @@ class GetOrdersByConsumerId extends Controller
 {
     public function __invoke(Request $request, $consumerId)
     {
-        $orders = Order::where('consumer_id', '=', "'$consumerId'")->get();
+        $orders = Order::where('consumer_id', '=', $consumerId)->get();
 
         return response()->json($orders);
     }

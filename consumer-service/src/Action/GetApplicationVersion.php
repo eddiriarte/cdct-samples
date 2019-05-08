@@ -29,7 +29,7 @@ class GetApplicationVersion
     public function __invoke($request, $response, $args)
     {
         return $response->withJson(
-            "Order Service ({$this->version}) powered by Slim"
+            "Consumer Service ({$this->version}) powered by Slim"
         );
     }
 }

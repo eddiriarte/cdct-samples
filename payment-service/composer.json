@@ -26,7 +26,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "EddIriarte\\Payment\\Tests\\": "tests/"
+            "Tests\\Payment\\": "tests/"
         }
     },
     "replace": {
@@ -60,6 +60,9 @@
     },
     "require-dev": {
         "fzaninotto/faker": "^1.8",
-        "symfony/maker-bundle": "^1.11"
+        "pact-foundation/pact-php": "^5.0",
+        "phpunit/phpunit": "^8.1",
+        "symfony/maker-bundle": "^1.11",
+        "symfony/test-pack": "^1.0"
     }
 }
