@@ -2,13 +2,12 @@ version: "3.5"
 
 networks:
   proxy:
-    external:
-      name: proxy_network
+    driver: bridge
 
 services:
 
   order:
-    image: eddiriarte/php7.2
+    image: eddiriarte/php-7.2
     networks:
       - proxy
     volumes:
@@ -20,7 +19,7 @@ services:
       - VIRTUAL_HOST=order-service.local
 
   consumer:
-    image: eddiriarte/php7.2
+    image: eddiriarte/php-7.2
     networks:
       - proxy
     volumes:
@@ -32,7 +31,7 @@ services:
       - VIRTUAL_HOST=consumer-service.local
   
   payment:
-    image: eddiriarte/php7.2
+    image: eddiriarte/php-7.2
     networks:
       - proxy
     volumes:
@@ -44,7 +43,7 @@ services:
       - VIRTUAL_HOST=payment-service.local
 
   portal:
-    image: eddiriarte/php7.2
+    image: eddiriarte/php-7.2
     networks:
       - proxy
     volumes:
@@ -54,3 +53,12 @@ services:
     working_dir: /var/www/html
     environment:
       - VIRTUAL_HOST=web-portal.local
+
+  nginx-proxy:
+    image: jwilder/nginx-proxy
+    ports:
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    networks:
+      - proxy
