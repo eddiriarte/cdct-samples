@@ -16,3 +16,4 @@ web-portal/var/cache/*
 web-portal/debug
 web-portal/*.sql
 consumer-service/var/doctrine/*
+pact-broker.sqlite

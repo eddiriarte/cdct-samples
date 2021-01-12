@@ -62,3 +62,16 @@ services:
       - /var/run/docker.sock:/tmp/docker.sock:ro
     networks:
       - proxy
+  
+  pact-broker:
+    image: dius/pact-broker
+    ports:
+      - 80
+    volumes:
+      - ./pact-broker.sqlite:/tmp/pact_broker.sqlite
+    environment:
+      - PACT_BROKER_DATABASE_ADAPTER=sqlite
+      - PACT_BROKER_DATABASE_NAME=/tmp/pact_broker.sqlite
+      - VIRTUAL_HOST=pact-broker.local
+    networks:
+      - proxy
