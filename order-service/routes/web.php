@@ -1,7 +1,6 @@
 <?php
-use Laravel\Lumen\Routing\Router;
-use EddIriarte\Order\Http\Controllers\SetProviderStateForPact;
-use EddIriarte\Order\Http\Controllers\GetOrdersByConsumerId;
+
+/** @var \Laravel\Lumen\Routing\Router $router */
 
 /*
 |--------------------------------------------------------------------------
@@ -14,20 +13,17 @@ use EddIriarte\Order\Http\Controllers\GetOrdersByConsumerId;
 |
 */
 
-return function (Router $router) {
+$router->get('/', function () use ($router) {
+    return $router->app->version();
+});
 
-    $router->get('/', function () {
-        return response()->json('Order Service v1.0.0, powered by Lumen');
-    });
+$router->group(
+    ['prefix' => 'api/v1'],
+    function () use ($router) {
 
-    $router->get(
-        '/orders/by-consumer/{consumer_id}',
-        GetOrdersByConsumerId::class
-    );
+        $router->get('customers/{customer_id}/orders', \App\Http\Controllers\CustomerOrdersSummary::class);
 
-    $router->post(
-        '/pact-dev/provider-state',
-        SetProviderStateForPact::class
-    );
+        $router->get('orders/{order_id}', \App\Http\Controllers\OrderDetails::class);
 
-};
+    }
+);

@@ -1,7 +1,7 @@
 /.vscode*/vendor/
 web-portal/vendor/
 order-service/vendor/
-consumer-service/vendor/
+customer-service/vendor/
 payment-service/vendor/
 payment-service/.vscode
 payment-service/.idea
@@ -15,5 +15,6 @@ web-portal/.idea
 web-portal/var/cache/*
 web-portal/debug
 web-portal/*.sql
-consumer-service/var/doctrine/*
+web-portal/database/database.sqlite
+customer-service/var/doctrine/*
 pact-broker.sqlite

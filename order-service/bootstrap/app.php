@@ -6,6 +6,8 @@ require_once __DIR__.'/../vendor/autoload.php';
     dirname(__DIR__)
 ))->bootstrap();
 
+date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
+
 /*
 |--------------------------------------------------------------------------
 | Create The Application
@@ -21,7 +23,7 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 $app->withEloquent();
 
@@ -38,13 +40,28 @@ $app->withEloquent();
 
 $app->singleton(
     Illuminate\Contracts\Debug\ExceptionHandler::class,
-    EddIriarte\Order\Exceptions\Handler::class
+    App\Exceptions\Handler::class
 );
 
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
-    EddIriarte\Order\Console\Kernel::class
+    App\Console\Kernel::class
 );
+
+/*
+|--------------------------------------------------------------------------
+| Register Config Files
+|--------------------------------------------------------------------------
+|
+| Now we will register the "app" configuration file. If the file exists in
+| your configuration directory it will be loaded; otherwise, we'll load
+| the default version. You may register other files below as needed.
+|
+*/
+
+$app->configure('app');
+
+$app->configure('api-dependencies');
 
 /*
 |--------------------------------------------------------------------------
@@ -58,11 +75,11 @@ $app->singleton(
 */
 
 // $app->middleware([
-//     EddIriarte\Order\Http\Middleware\ExampleMiddleware::class
+//     App\Http\Middleware\ExampleMiddleware::class
 // ]);
 
 // $app->routeMiddleware([
-//     'auth' => EddIriarte\Order\Http\Middleware\Authenticate::class,
+//     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
 
 /*
@@ -76,7 +93,7 @@ $app->singleton(
 |
 */
 
-// $app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
 
@@ -91,11 +108,10 @@ $app->singleton(
 |
 */
 
-$webRoutesRegister = require dirname(__DIR__) . '/routes/web.php';
-
-$app->router->group(
-    [],
-    $webRoutesRegister
-);
+$app->router->group([
+    'namespace' => null,
+], function ($router) {
+    require __DIR__.'/../routes/web.php';
+});
 
 return $app;

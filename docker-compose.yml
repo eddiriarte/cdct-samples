@@ -7,66 +7,68 @@ networks:
 services:
 
   order:
-    image: eddiriarte/php-7.2
+    image: eddiriarte/php-8.0
     networks:
       - proxy
     volumes:
       - ./order-service:/var/www/html
     ports:
-      - 80
+      - 8000:80
     working_dir: /var/www/html
     environment:
       - VIRTUAL_HOST=order-service.local
 
-  consumer:
-    image: eddiriarte/php-7.2
+  customer:
+    image: eddiriarte/php-8.0
     networks:
       - proxy
     volumes:
-      - ./consumer-service:/var/www/html
+      - ./customer-service:/var/www/html
     ports:
-      - 80
+      - 8020:80
     working_dir: /var/www/html
     environment:
-      - VIRTUAL_HOST=consumer-service.local
+      - VIRTUAL_HOST=customer-service.local
   
   payment:
-    image: eddiriarte/php-7.2
+    image: eddiriarte/php-8.0
     networks:
       - proxy
     volumes:
       - ./payment-service:/var/www/html
     ports:
-      - 80
+      - 8040:80
     working_dir: /var/www/html
     environment:
       - VIRTUAL_HOST=payment-service.local
 
   portal:
-    image: eddiriarte/php-7.2
+    image: eddiriarte/php-8.0
     networks:
       - proxy
     volumes:
       - ./web-portal:/var/www/html
     ports:
-      - 80
+      - 8060:80
     working_dir: /var/www/html
     environment:
       - VIRTUAL_HOST=web-portal.local
 
-  nginx-proxy:
-    image: jwilder/nginx-proxy
-    ports:
-      - "80:80"
+  slides:
+    image: nginx
     volumes:
-      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./docs:/usr/share/nginx/html
+    ports:
+      - 3000:80
+    environment:
+      - VIRTUAL_HOST=consumer-driven-contract-testing.local
     networks:
       - proxy
   
   pact-broker:
     image: dius/pact-broker
     ports:
-      - 80
+      - 4000:80
     volumes:
       - ./pact-broker.sqlite:/tmp/pact_broker.sqlite
     environment:
@@ -75,3 +77,13 @@ services:
       - VIRTUAL_HOST=pact-broker.local
     networks:
       - proxy
+  
+  # nginx-proxy:
+  #   image: jwilder/nginx-proxy
+  #   userns: host
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - /var/run/docker.sock:/tmp/docker.sock:ro
+  #   networks:
+  #     - proxy

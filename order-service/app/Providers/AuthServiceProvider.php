@@ -1,8 +1,8 @@
 <?php
 
-namespace EddIriarte\Order\Providers;
+namespace App\Providers;
 
-use EddIriarte\Order\User;
+use App\Models\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 

@@ -1,37 +1,28 @@
 <?php
-use Slim\App;
 
-call_user_func(function () {
-    if (PHP_SAPI == 'cli-server') {
-        // To help the built-in PHP dev server, check if the request was actually for
-        // something which should probably be served as a static file
-        $url  = parse_url($_SERVER['REQUEST_URI']);
-        $file = __DIR__ . $url['path'];
-        if (is_file($file)) {
-            return false;
-        }
-    }
+/*
+|--------------------------------------------------------------------------
+| Create The Application
+|--------------------------------------------------------------------------
+|
+| First we need to get an application instance. This creates an instance
+| of the application / container and bootstraps the application so it
+| is ready to receive HTTP / Console requests from the environment.
+|
+*/
 
-    require dirname(__DIR__) . '/vendor/autoload.php';
+$app = require __DIR__.'/../bootstrap/app.php';
 
-    session_start();
-    
-    // Instantiate the app
-    $config = require dirname(__DIR__) . '/config/settings.php';
-    $app = new App($config);
-    
-    // Set up container
-    $container = require dirname(__DIR__) . '/config/container.php';
-    $container($app);
+/*
+|--------------------------------------------------------------------------
+| Run The Application
+|--------------------------------------------------------------------------
+|
+| Once we have the application, we can handle the incoming request
+| through the kernel, and send the associated response back to
+| the client's browser allowing them to enjoy the creative
+| and wonderful application we have prepared for them.
+|
+*/
 
-    // Register middleware
-    $middleware = require dirname(__DIR__) . '/config/middleware.php';
-    $middleware($app);
-    
-    // Register routes
-    $routes = require dirname(__DIR__) . '/config/routes.php';
-    $routes($app);
-    
-    // Run app
-    $app->run();
-});
+$app->run();
