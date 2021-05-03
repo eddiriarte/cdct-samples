@@ -43,7 +43,8 @@ class OrderApiClient
     public function getOrderDetails(string $orderId): OrderDetails
     {
         try {
-            $response = Http::get($this->baseUrl . '/api/v1/orders/' . $orderId);
+            $response = Http::withHeaders(['Content-Type' => 'application/json'])
+                ->get($this->baseUrl . '/api/v1/orders/' . $orderId);
 
             return OrderDetails::make($response->json());
         } catch (\Exception $e) {

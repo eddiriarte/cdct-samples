@@ -94,7 +94,7 @@ class Payment
     {
         return [
             'id' => $this->id,
-            'amount' => $this->amount,
+            'amount' => (float)$this->amount,
             'transferred_at' => $this->getTransferredAt()->format(\DateTimeInterface::ATOM),
             'order_id' => $this->orderId,
             'description' => $this->description,

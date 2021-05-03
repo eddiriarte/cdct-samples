@@ -28,10 +28,10 @@ class OrderDetails extends \Laravel\Lumen\Routing\Controller
             'id' => $order->id,
             'ordered_at' => $order->ordered_at,
             'address' => $order->address,
-            'gross_total' => $order->gross_total,
-            'tax_rate' => $order->tax_rate,
+            'gross_total' => (float)$order->gross_total,
+            'tax_rate' => (float)$order->tax_rate,
             'currency' => $order->currency,
-            'basket' => json_decode($order->basket, true),
+            'basket' => $this->decodeBasket($order->basket),
             'payments' => $this->getOrderPayments($order->id),
 //            'customer' => $this->getOrderCustomer($order->customer_id),
         ];
@@ -47,5 +47,12 @@ class OrderDetails extends \Laravel\Lumen\Routing\Controller
     private function getOrderCustomer(string $customerId)
     {
         return $this->customerApi->getCustomerById($customerId);
+    }
+
+    private function decodeBasket(string $basket): Collection
+    {
+        $items = json_decode($basket, true);
+
+        return collect($items);
     }
 }
