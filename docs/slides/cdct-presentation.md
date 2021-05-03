@@ -58,19 +58,25 @@ Verified communication by given contract
 A strategy  to test communication between services, constrained to a given contract. Contracts must be therefore explicitly defined by the service-consumer and verified by the service-provider.
 
 
+<!-- .slide: id="definition" -->
+Ist eine Strategie um die Kommunikation zwischen services, in einem per "Vertrag" vereinbarten Rahmen, testen zu können.
+
+"Verträge" werden explizit durch den Servicenehmer definiert und durch den Serviceanbieter verifiziert.
+
+
 ## What is it good for?
 
 
-<img class="plain" src="./media/api-development-start.svg" width="85%" alt="API Development - Start">
+<img class="plain" src="./media/api-development-start.png" width="85%" alt="API Development - Start">
 
 
-<img class="plain" src="./media/api-development-provider-update.svg" width="85%" alt="API Development - Provider update">
+<img class="plain" src="./media/api-development-provider-update.png" width="85%" alt="API Development - Provider update">
 
 
-<img class="plain" src="./media/api-development-postels-law.svg" width="85%" alt="API Development - Postel's Law">
+<img class="plain" src="./media/api-development-postels-law.png" width="85%" alt="API Development - Postel's Law">
 
 
-<img class="plain" src="./media/api-development-versionized.svg" width="85%" alt="API Development - Versionized API">
+<img class="plain" src="./media/api-development-versionized.png" width="85%" alt="API Development - Versionized API">
 
 Note:
 - Lack of knowledge about consumer requirements
@@ -99,7 +105,10 @@ Note:
 <!-- .slide: data-background-image="./media/demo-architecture.png" data-background-size="cover" -->
 ## DEMO
 
+<img class="plain" src="./media/demo-architechture.png" alt="DEMO - Architechture">
+<br>
 `git clone https://github.com/eddiriarte/cdct-samples.git` <small>* still working on it</small>
+
 
 
 ## Surprises & Pit-Falls of `PACT`

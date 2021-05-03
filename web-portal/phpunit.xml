@@ -6,12 +6,42 @@
 >
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory suffix="Test.php">./tests</directory>
+            <directory suffix="Test.php">./tests/Unit</directory>
+        </testsuite>
+        <testsuite name="AuthAPIContractTests">
+            <directory suffix="Test.php">./tests/AuthApi</directory>
+        </testsuite>
+        <testsuite name="OrderAPIContractTests">
+            <directory suffix="Test.php">./tests/OrderApi</directory>
         </testsuite>
     </testsuites>
+
+    <listeners>
+        <listener class="PhpPact\Consumer\Listener\PactTestListener">
+            <arguments>
+                <array>
+                    <element key="0">
+                        <string>OrderAPIContractTests</string>
+                    </element>
+                </array>
+            </arguments>
+        </listener>
+    </listeners>
+
     <php>
         <env name="APP_ENV" value="testing"/>
         <env name="CACHE_DRIVER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
+
+        <env name="PACT_MOCK_SERVER_HOST" value="127.0.0.1"/>
+        <env name="PACT_MOCK_SERVER_PORT" value="7200"/>
+        <env name="PACT_CONSUMER_NAME" value="Web-Portal"/>
+        <env name="PACT_CONSUMER_VERSION" value="1.0.0"/>
+        <env name="PACT_CONSUMER_TAG" value="demo"/>
+        <env name="PACT_PROVIDER_NAME" value="Order Api"/>
+        <env name="PACT_OUTPUT_DIR" value="/tmp/pact"/>
+        <env name="PACT_MOCK_SERVER_HEALTH_CHECK_TIMEOUT" value="60"/>
+        <env name="PACT_MOCK_SERVER_HEALTH_CHECK_RETRY_SEC" value="1"/>
+        <env name="PACT_BROKER_URI" value="http://pact-broker"/>
     </php>
 </phpunit>

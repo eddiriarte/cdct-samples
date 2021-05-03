@@ -26,13 +26,13 @@ class OrderApiClient
     {
         $response = null;
         try {
-            $response = Http::get($this->baseUrl . '/api/v1/customers/' . $userId . '/orders');
+            $response = Http::withHeaders(['Content-Type' => 'application/json'])
+                ->get($this->baseUrl . '/api/v1/customers/' . $userId . '/orders');
         } catch (\Exception $e) {
             throw new OrderApiRequestException('An error occurred!');
         }
 
         if ($response->failed()) {
-            dd($response->json());
             throw new OrderApiRequestException($response->body());
         }
 
