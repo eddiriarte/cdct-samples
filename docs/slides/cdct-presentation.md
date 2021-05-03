@@ -115,17 +115,17 @@ Note:
 
 <div class="two-columns-container">
     <article class="column">
-        - ![]open source<br>
+        - open source<br>
         - growing community<br>
         - tech. agnostic<br>
         - highly extensible<br>
-        - GitHooks
+        - WebHooks
     </article>
     <article class="column">
-        - hard intro<br>
-        - still buggy ;)<br>
+        - distributed arch required<br>
         - distributed teams required<br>
-        - difficult setup<br>
+        - no PHP native support
+        - still no PHP8
     </article>
 </div>
 
