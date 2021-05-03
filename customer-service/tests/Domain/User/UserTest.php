@@ -11,11 +11,11 @@ class UserTest extends TestCase
     public function userProvider()
     {
         return [
-            [1, 'bill.gates', 'Bill', 'Gates'],
-            [2, 'steve.jobs', 'Steve', 'Jobs'],
-            [3, 'mark.zuckerberg', 'Mark', 'Zuckerberg'],
-            [4, 'evan.spiegel', 'Evan', 'Spiegel'],
-            [5, 'jack.dorsey', 'Jack', 'Dorsey'],
+            [1, 'obi-wan.kenobi@jedi.org', 'Obi-Wan', 'Kenobi'],
+            [2, 'padme.amidala@naboo.com', 'Padme', 'Amidala'],
+            [3, 'kylo.ren@first-order.gov', 'Kylo', 'Ren'],
+            [4, 'mace.wimdu@jedi.org', 'Mace', 'Wimdu'],
+            [5, 'rey3000@scrum.tt', 'Rey', ''],
         ];
     }
 
@@ -50,8 +50,8 @@ class UserTest extends TestCase
         $expectedPayload = json_encode([
             'id' => $id,
             'username' => $username,
-            'firstName' => $firstName,
-            'lastName' => $lastName,
+            'first_name' => $firstName,
+            'last_name' => $lastName,
         ]);
 
         $this->assertEquals($expectedPayload, json_encode($user));

@@ -18,3 +18,4 @@ web-portal/*.sql
 web-portal/database/database.sqlite
 customer-service/var/doctrine/*
 pact-broker.sqlite
+pact.log

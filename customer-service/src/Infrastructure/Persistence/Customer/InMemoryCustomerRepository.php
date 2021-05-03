@@ -32,6 +32,7 @@ class InMemoryCustomerRepository implements CustomerRepository
                 8 => new Customer(8, 'anakin.skywalker@jedi.org', 'Ananik', 'Skywalker'),
                 9 => new Customer(9, 'boba.fett@mercenary.biz', 'Boba', 'Fett'),
                 10 => new Customer(10, 'darth.maul@sith.net', 'Darth', 'Maul'),
+                11 => new Customer(11, 'darth.vader@empire.gov', 'Darth', 'Vader'),
             ];
     }
 
