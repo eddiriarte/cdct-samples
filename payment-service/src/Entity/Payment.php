@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PaymentRepository;
+use Carbon\Carbon;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,27 +16,27 @@ class Payment
      * @ORM\Id
      * @ORM\Column(type="string")
      */
-    private $id;
+    private string $id;
 
     /**
      * @ORM\Column(type="decimal")
      */
-    private $amount;
+    private float $amount;
 
     /**
-     * @ORM\Column(type="datetimetz")
+     * @ORM\Column(type="carbon")
      */
-    private $transferredAt;
+    private Carbon $transferredAt;
 
     /**
      * @ORM\Column(type="guid")
      */
-    private $orderId;
+    private string $orderId;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private string $description;
 
     public function getId(): ?int
     {
@@ -54,12 +55,12 @@ class Payment
         return $this;
     }
 
-    public function getTransferredAt(): ?\DateTimeInterface
+    public function getTransferredAt(): ?Carbon
     {
-        return $this->transferredAt;
+        return $this->transferredAt ?? null;
     }
 
-    public function setTransferredAt(\DateTimeInterface $transferredAt): self
+    public function setTransferredAt(Carbon $transferredAt): self
     {
         $this->transferredAt = $transferredAt;
 
@@ -95,7 +96,7 @@ class Payment
         return [
             'id' => $this->id,
             'amount' => (float)$this->amount,
-            'transferred_at' => $this->getTransferredAt()->format(\DateTimeInterface::ATOM),
+            'transferred_at' => $this->getTransferredAt()->format(\DateTimeInterface::RFC3339),
             'order_id' => $this->orderId,
             'description' => $this->description,
         ];

@@ -7,7 +7,7 @@ networks:
 services:
 
   order:
-    image: eddiriarte/php-8.0
+    image: eddiriarte/php-8.1
     networks:
       - proxy
     volumes:
@@ -19,7 +19,7 @@ services:
       - VIRTUAL_HOST=order-service.local
 
   customer:
-    image: eddiriarte/php-8.0
+    image: eddiriarte/php-8.1
     networks:
       - proxy
     volumes:
@@ -29,9 +29,9 @@ services:
     working_dir: /var/www/html
     environment:
       - VIRTUAL_HOST=customer-service.local
-  
+
   payment:
-    image: eddiriarte/php-8.0
+    image: eddiriarte/php-8.1
     networks:
       - proxy
     volumes:
@@ -43,7 +43,7 @@ services:
       - VIRTUAL_HOST=payment-service.local
 
   portal:
-    image: eddiriarte/php-8.0
+    image: eddiriarte/php-8.1
     networks:
       - proxy
     volumes:
@@ -64,7 +64,7 @@ services:
       - VIRTUAL_HOST=consumer-driven-contract-testing.local
     networks:
       - proxy
-  
+
   pact-broker:
     image: dius/pact-broker
     ports:
@@ -77,7 +77,7 @@ services:
       - VIRTUAL_HOST=pact-broker.local
     networks:
       - proxy
-  
+
   # nginx-proxy:
   #   image: jwilder/nginx-proxy
   #   userns: host
